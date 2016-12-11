@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="chat">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= title %>
+  </title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="javascripts/socket.js"></script>
+  <script src="javascripts/functions.js"></script>
+  <script src="javascripts/modules.js"></script>
+</head>
+
+<body>
+  <div class="container container-fixed" ng-controller="TabsController as tabsCtrl">
+
+    <header>
+      <div class="title">уже вполне хорош</div>
+      <div class="userbar">Logged as: <span id="username"><%= username %></span> | <a href="/logout">Logout</a></div>
+    </header>
+
+    <div class="fixer">
+      <ul class="tabs">
+        <li ng-repeat="tab in tabsCtrl.tabs" ng-class="{active:tabsCtrl.isActive(tabsCtrl.tabs.indexOf(tab))}" ng-click="tabsCtrl.setActive(tabsCtrl.tabs.indexOf(tab))">
+          {{tab.title}}<span ng-click="tabsCtrl.deleteTab(tabsCtrl.tabs.indexOf(tab))" class="glyphicon glyphicon-remove closeicon" aria-hidden="true"></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="users" ng-controller="UserController as userCtrl">
+      <div class="user" ng-repeat="user in userCtrl.users" ng-click="tabsCtrl.createTab(user)">
+        {{user}}
+      </div>
+    </div>
+
+    <div class="typer" ng-controller="TyperController as typerCtrl">
+      <textarea class="form-control" rows="3" ng-model="typerCtrl.message.text"></textarea>
+      <div class="but">
+        <button type="button" class="btn btn-primary" ng-click="typerCtrl.sendMessage()">Отправить</button>
+      </div>
+    </div>
+
+    <div class="messages" ng-controller="MessageController as msgCtrl">
+      <div id="load" ng-click="tabsCtrl.loadMessages()">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+      </div>
+      <div ng-repeat="message in messages" on-finish-render="ngRepeatFinished">
+        <div ng-class="msgCtrl.msgauthor(message)">
+          {{message.from_id}}
+        </div>
+        <div ng-class="msgCtrl.msgClass(message)">
+          {{message.text}}
+        </div>
+      </div>
+      <div id="bottom"></div>
+    </div>
+
+  </div>
+</body>
+
+</html>

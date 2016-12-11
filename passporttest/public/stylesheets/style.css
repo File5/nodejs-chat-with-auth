@@ -1,0 +1,172 @@
+.main-form {
+  width: 450px;
+  margin: 200px auto;
+  background-color: #cacaca;
+  padding: 50px;
+  border-radius: 20px;
+  border: 2px solid #cfcfcf;
+}
+
+.reg {
+  width: 800px;
+  margin: 200px auto;
+  background-color: #abcdef;
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid #cfcfcf;
+}
+
+.main-form .loginbutton {
+  background-color: #008887;
+  border-color: #42cc9c;
+  color: aliceblue;
+}
+
+.container-fixed {
+  width: 950px;
+  position: relative;
+  margin: auto;
+  min-height: 100%;
+  background-color: white;
+  padding: 0px;
+}
+
+.fixer {
+  position: fixed;
+  width: 750px;
+}
+
+ul.tabs {
+  background-color: #ffffaa;
+  margin: 0px;
+  margin-top: 50px;
+  padding: 0px;
+  cursor: default;
+}
+
+ul.tabs li {
+  display: inline-block;
+  list-style: none;
+  padding: 5px 15px;
+}
+
+ul.tabs li.active {
+  background-color: #0000aa;
+  color: white;
+}
+
+.closeicon {
+  margin: auto;
+  margin-left: 5px;
+}
+
+#load {
+  text-align: center;
+  background: #eee;
+  margin-top: 4px;
+}
+
+.glyphicon {
+  position: inherit;
+}
+
+.messages {
+  width: 100%;
+  padding-right: 205px;
+  padding-bottom: 135px;
+  padding-top: 76px;
+  padding-left: 5px;
+  padding-top word-wrap: break-word;
+}
+
+.messages .msg {
+  margin: 0px 5px 5px;
+  padding: 5px;
+  padding-top: 0px;
+  margin-right: 256px;
+  background-color: skyblue;
+  overflow: hidden;
+}
+
+.messages .ownmsg {
+  margin: 0px 5px 5px;
+  padding: 5px;
+  padding-top: 0px;
+  margin-left: 256px;
+  background-color: #aaff71;
+  overflow: hidden;
+}
+
+.datenameget {
+  padding: 5px;
+  padding-bottom: 0px;
+  text-align: left;
+}
+
+.datenameown {
+  padding: 5px;
+  padding-bottom: 0px;
+  text-align: right;
+}
+
+.users {
+  position: fixed;
+  margin: 0px;
+  margin-top: 50px;
+  margin-left: 750px;
+  padding: 5px;
+  width: 200px;
+  height: 100%;
+  background-color: #c7c7c7;
+}
+
+.typer {
+  position: fixed;
+  bottom: 0px;
+  padding: 5px;
+  height: 135px;
+  width: 750px;
+  background-color: #aada78;
+}
+
+header {
+  position: fixed;
+  width: 950px;
+  height: 50px;
+  margin: 0px;
+  background-color: #44c19e;
+}
+
+header .title {
+  font-size: 24pt;
+  margin: 0px;
+  padding: 5px;
+  float: left;
+}
+
+.userbar {
+  padding: 14px;
+  float: right;
+}
+
+.user {
+  padding: 5px;
+}
+
+.but {
+  float: right;
+  padding-top: 5px;
+}
+
+body {
+  background-color: #dddddc;
+}
+
+textarea {
+  resize: none;
+}
+
+html,
+body {
+  height: 100%;
+}

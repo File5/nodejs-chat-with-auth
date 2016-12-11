@@ -1,0 +1,1 @@
+SET DEBUG=passporttest:* & npm start
