@@ -19,6 +19,7 @@ var app = express();
 var io = require('socket.io')();
 app.io = io;
 
+var config = require('./config');
 var User = require('./models/user');
 var Session = require('./models/session');
 var Message = require('./models/message');
@@ -101,11 +102,11 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 var options = {
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'kursk156',
-  database: 'test'
+  host: config.host,
+  port: config.port,
+  user: config.user,
+  password: config.password,
+  database: config.database
 };
 
 var sessionStore = new SessionStore(options);

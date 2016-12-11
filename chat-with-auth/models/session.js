@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('mysql://root:kursk156@localhost:3306/test');
+var config = require('../config');
+var db = new Sequelize(config.toString());
 
 var Session = db.define('session', {
   id: {
