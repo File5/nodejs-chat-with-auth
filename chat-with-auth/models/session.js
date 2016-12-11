@@ -12,10 +12,6 @@ var Session = db.define('session', {
 }, {
   timestamps: false
 });
-//User.sync({force: true});
-//User.register("login", "password", function (err) {
-//  console.log(JSON.stringify(err));
-//});
 Session.getUsername = function (obj) {
   return JSON.parse(obj.dataValues.data).passport.user;
 };

@@ -23,8 +23,6 @@ var User = require('./models/user');
 var Session = require('./models/session');
 var Message = require('./models/message');
 
-//var init = require('./models/init');
-
 io.on('connection', function (socket) {
   var handshake = socket.request;
   var cookies = cookie.parse(handshake.headers.cookie);
@@ -33,10 +31,6 @@ io.on('connection', function (socket) {
     sid = cookieParser.signedCookie(cookies['session_cookie_name'], "ILoveJavascript");
   }
   var username = '';
-  // console.log(sid);
-  // Session.findById(sid).then(function (sessionObj) {
-  //   console.log(Session.getUsername(sessionObj));
-  // });
   Session.findById(sid).then(function (sessionObj) {
     username = Session.getUsername(sessionObj);
     if (username) {
@@ -123,7 +117,6 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-//app.use(session({secret: "ILoveJavascript"}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());

@@ -8,7 +8,6 @@ app.controller("UserController", function (mySocket, $http) {
   var self = this;
   $http.get('./users/').then(function (response) {
     for (var user in response.data) {
-      // console.log(response.data[user]);
       self.users.push(response.data[user].username);
     }
   });
@@ -18,8 +17,6 @@ app.controller("UserController", function (mySocket, $http) {
     }
   });
   mySocket.on('logout', function (username) {
-    // console.log('logout');
-    // console.log(username);
     if (self.users.indexOf(username) != -1) {
       self.users = deleteFromArray(self.users, self.users.indexOf(username));
     }
@@ -97,9 +94,6 @@ app.controller("TyperController", function (mySocket, $scope) {
       }
       self.message.text = "";
       mySocket.emit("message", msg);
-      //mySocket.on("messageSuccess", function (data) {
-      //  self.message.text = "";
-      //});
     }
   };
   document.querySelector('textarea').onkeypress = function (e) {
@@ -133,7 +127,6 @@ app.controller('TabsController', function (mySocket, $scope, $http) {
         $scope.to_id = '';
       }
     }
-    // console.log($scope.to_id);
   };
   this.deleteTab = function (tabNo) {
     if (tabNo in this.tabs && tabNo != 0) {

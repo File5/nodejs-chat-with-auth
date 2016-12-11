@@ -9,6 +9,5 @@ var Message = db.define('Message', {
   },
   text: Sequelize.TEXT
 });
-//Message.sync({force: true});
 
 module.exports = Message;

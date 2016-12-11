@@ -8,9 +8,5 @@ var User = passportHelper.defineUser(db, {
     defaultValue: 0
   }
 });
-//User.sync({force: true});
-//User.register("login", "password", function (err) {
-//  console.log(JSON.stringify(err));
-//});
 
 module.exports = User;
