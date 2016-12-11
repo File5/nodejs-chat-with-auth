@@ -1,0 +1,1 @@
+SET DEBUG=chat-with-auth:* & npm start
