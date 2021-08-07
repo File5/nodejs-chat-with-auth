@@ -32,7 +32,7 @@ io.on('connection', function (socket) {
     sid = cookieParser.signedCookie(cookies['session_cookie_name'], "ILoveJavascript");
   }
   var username = '';
-  Session.findById(sid).then(function (sessionObj) {
+  Session.findByPk(sid).then(function (sessionObj) {
     username = Session.getUsername(sessionObj);
     if (username) {
       User.findOne({
@@ -49,7 +49,7 @@ io.on('connection', function (socket) {
     }
   });
   socket.on('message', function (data) {
-    Session.findById(sid).then(function (sessionObj) {
+    Session.findByPk(sid).then(function (sessionObj) {
       if (username) {
         data.from_id = username;
         socket.emit('messageSuccess', {});
@@ -71,7 +71,7 @@ io.on('connection', function (socket) {
     });
   });
   socket.on('disconnect', function (socket) {
-    Session.findById(sid).then(function (sessionObj) {
+    Session.findByPk(sid).then(function (sessionObj) {
       if (username) {
         User.findOne({
           where: {
